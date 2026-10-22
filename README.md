@@ -1,107 +1,92 @@
 <div align="center">
 
 # Anthony Yariff Huice Martínez
-### Desarrollador Full-Stack & Móvil | Software Engineer
+### Full-Stack & Mobile Engineer | Next.js · React Native (Expo) · Node.js · PostgreSQL (Supabase) · AI
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Anthony_Huice-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/anthony-huice-61906b377)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-anthony--huice-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/anthony-huice)
 [![Email](https://img.shields.io/badge/Email-anthonyhuice92%40gmail.com-EA4335?style=flat&logo=gmail)](mailto:anthonyhuice92@gmail.com)
-[![Status](https://img.shields.io/badge/Disponibilidad-Inmediata_(Remoto_/_Presencial)-2E7D32?style=flat)](mailto:anthonyhuice92@gmail.com)
-[![Ubicación](https://img.shields.io/badge/Ubicación-Anaco%2C_Anzoátegui%2C_Venezuela-555?style=flat&logo=google-maps)](https://maps.google.com)
+[![Modalidad](https://img.shields.io/badge/Modalidad-Remoto_Full--Time_%2F_Contractor-2E7D32?style=flat)](mailto:anthonyhuice92@gmail.com)
+[![Ubicación](https://img.shields.io/badge/Ubicación-Anaco%2C_Venezuela-555?style=flat&logo=google-maps)](https://www.linkedin.com/in/anthony-huice)
 
 <p align="center">
-  <b>T.S.U. en Informática · Estudiante de Ingeniería en Informática (IUNAV)</b><br>
-  Especializado en arquitectura de software escalable, aplicaciones web y móviles de alto rendimiento, bases de datos relacionales seguras en la nube (Supabase/PostgreSQL) e integración de automatizaciones con Inteligencia Artificial.
+  Desarrollador Full-Stack y Móvil (+3 años) especializado en el diseño arquitectónico y puesta en producción de sistemas empresariales de misión crítica (<b>CRM, ERP, WMS, Control de Accesos IoT y E-Commerce transaccional</b>). Enfoque estricto en aislamiento multi-tenant de baja latencia, consistencia transaccional en PostgreSQL y automatización operativa B2B con LLMs.
 </p>
 
 ---
 
 </div>
 
-## 🛠️ Stack Tecnológico Principal
+## 🛠️ Stack Tecnológico
 
-<div align="center">
-
-| Área | Tecnologías |
+| Dominio | Tecnologías & Arquitectura |
 | :--- | :--- |
-| **Frontend & Web** | `TypeScript` · `JavaScript` · `Next.js (App Router)` · `React 19` · `Tailwind CSS` · `TanStack Query` · `Zustand` · `HTML5` · `CSS3` |
-| **Desarrollo Móvil** | `React Native` · `Expo SDK` · `PWA (Service Workers)` |
-| **Backend & Bases de Datos** | `Node.js` · `Express` · `Supabase` · `PostgreSQL` (RLS, RPCs, Triggers, GIN) · `REST APIs` · `SQL` |
-| **IA & Automatización** | `Google Gemini API` · `Meta WhatsApp Cloud API` · `Webhooks` · `LLM Integration` |
-| **DevOps & Entorno** | `Git` · `GitHub` · `Vercel` · `Linux` · `Windows` |
-
-</div>
+| **Frontend & Móvil** | `TypeScript (Strict)` · `Next.js (App Router, RSC, SSR/ISR)` · `React 19` · `React Native` · `Expo SDK` · `PWA` · `TanStack Query` · `Zustand` · `Tailwind CSS` · `Zod` |
+| **Backend & Datos** | `Node.js` · `Express` · `PostgreSQL (Supabase)` · `Row-Level Security (RLS)` · `Funciones RPC Transaccionales` · `Triggers & Índices GIN` · `REST APIs` · `WebSockets (Realtime)` |
+| **IA, IoT & Cloud** | `Google Gemini API` · `Meta WhatsApp Cloud API` · `Webhooks` · `Python (Edge/Hardware Bridge)` · `Vercel Serverless` · `Linux` · `Git / GitHub` |
 
 ---
 
-## 🚀 Proyectos Destacados & Arquitectura
+## 🚀 Sistemas en Producción & Arquitectura de Ingeniería
 
-> *Nota: Para salvaguardar la propiedad intelectual y los datos comerciales, los repositorios de código de producción son privados. A continuación se detalla la arquitectura de ingeniería, decisiones técnicas y capacidades de los sistemas.*
+> *Nota: Por acuerdos de confidencialidad y protección de propiedad intelectual comercial, los repositorios de producción se mantienen privados. A continuación se documenta la arquitectura técnica implementada en cada sistema.*
 
-### 📡 1. Metricall — Suite Operativa CRM, ERP & WMS (Telecomunicaciones / ISPs)
-Plataforma operativa integral multi-tenant desplegada y en uso activo para proveedores de internet (FTTH/ISPs). Resuelve el desorden de captura de datos en campo mediante flujos dinámicos estructurados, georreferenciación y automatización inteligente.
+### 📡 1. Metricall — Suite Operativa Multi-Tenant CRM, ERP & WMS para ISPs (Telecom FTTH)
+Ecosistema multiplataforma (**Web, PWA y Android**) en producción para operadoras de fibra óptica (FTTH). Reemplaza la gestión fragmentada en hojas de cálculo por flujos estructurados de campo, trazabilidad de inventario y atención automatizada.
 
-* **Stack:** `React Native` · `Expo SDK` · `TypeScript` · `Supabase (PostgreSQL 15+)` · `Node.js / Vercel` · `Google Gemini API` · `Meta WhatsApp Cloud API`
-* **Módulos y Capacidades:**
-  * **Tableros Kanban Operativos:** Gestión visual por fases (*Ventas*, *Factibilidad Técnica con Evidencia LCH*, *Asignación*, *Instalación*, *Activación* y *Liberadas*) con trazabilidad cronológica auditada.
-  * **Georreferenciación y GeoFotos:** Registro obligatorio de coordenadas GPS y captura de evidencias de instalación (caja NAP y residencia).
-  * **WMS & Control de Materiales:** Inventario central y asignación de custodia personal a técnicos con control de modelos y seriales de ONUs/Routers, y generación de órdenes con firma digital manuscrita.
-  * **Bot de WhatsApp con IA:** Integración con la API de Meta y **Google Gemini** para la extracción automatizada y estructurada de prospectos, procesamiento interactivo de reportes de pago y atención técnica de fallas.
-  * **Arquitectura de Base de Datos:** Más de 100 políticas **Row-Level Security (RLS)** denormalizadas por tenant (cero JOINs para alto rendimiento), funciones transaccionales RPC con `SECURITY DEFINER` e índices GIN.
+* **Arquitectura Multi-Tenant de Latencia $O(1)$:** Modelo jerárquico de 5 niveles (*Empresas → Sucursales → Tableros → Listas JSONB → Tarjetas JSONB*) con propagación denormalizada de `empresa_id`, superando las **100 políticas RLS sin JOINs**, índices GIN sobre columnas JSONB y funciones RPC con `SECURITY DEFINER`.
+* **Bot Transaccional con IA (WhatsApp Cloud API + Gemini 2.0 Flash):** Webhook serverless en Node.js con extracción determinista (temperatura `0.1–0.2`) y fallback heurístico local en JS (0% downtime ante caída de API externa). Automatiza:
+  1. **Captura de Prospectos:** Extracción estructurada de datos de contratación y enrutamiento directo al tablero de *Factibilidad*.
+  2. **Conciliación de Cobranza en 2 Pasos:** Validación interactiva de datos bancarios (Pago Móvil/Transferencia), descarga de comprobantes desde Meta hacia Supabase Storage y generación de tickets auditables.
+  3. **Triaje NOC de Soporte Técnico:** Clasificación automatizada de 5 categorías de fallas ópticas/red y auditoría en vivo mediante `webhook_logs`.
+* **WMS y Operaciones de Campo:** Trazabilidad de equipos serializados (ONUs/Routers) a través de 6 estados de custodia, validación geográfica obligatoria (coordenadas GPS + evidencia fotográfica de caja NAP/residencia) y firma digital manuscrita en dispositivo móvil.
 
 ```mermaid
 flowchart TD
-    subgraph Clientes["Clientes & Campo"]
-        WA[WhatsApp / Clientes] -->|Mensajes / Pagos| MetaAPI[Meta Cloud API]
-        App[Técnicos / App Móvil Expo] -->|GPS + GeoFotos + WMS| SupaAPI[Supabase Client]
+    subgraph Campo["Clientes & Cuadrillas"]
+        WA["WhatsApp Clientes"] -->|Mensajes / Comprobantes| MetaAPI["Meta Cloud API"]
+        App["App Móvil Expo / PWA"] -->|GPS + GeoFotos + WMS| SupaAPI["Supabase Client"]
     end
 
-    subgraph Backend["Capa Cloud & Serverless"]
-        MetaAPI -->|Webhook| VercelFunc[Node.js Serverless en Vercel]
-        VercelFunc -->|Extracción estructurada| Gemini[Google Gemini AI]
-        Gemini -->|Datos validados| VercelFunc
-        VercelFunc -->|Escritura RPC| SupaDB[(PostgreSQL / Supabase)]
-        SupaAPI -->|Auth + RLS + Triggers| SupaDB
+    subgraph Cloud["Capa Serverless & IA"]
+        MetaAPI -->|Webhook HMAC| VercelFunc["Node.js Serverless (Vercel)"]
+        VercelFunc -->|Extracción JSON / Fallback JS| Gemini["Google Gemini 2.0 Flash"]
+        Gemini -->|Payload Validado| VercelFunc
+        VercelFunc -->|RPC Security Definer| SupaDB[("PostgreSQL Multi-Tenant")]
+        SupaAPI -->|Auth + RLS O(1) + Triggers| SupaDB
     end
 
-    subgraph TiempoReal["Tiempo Real & Storage"]
-        SupaDB -->|WebSockets| Kanban[Tableros Kanban en Vivo]
-        SupaDB -->|Buckets Seguros| Evidencias[Storage Evidencias LCH]
+    subgraph Realtime["Sincronización & Almacenamiento"]
+        SupaDB -->|WebSockets| Kanban["Tableros Kanban Operativos"]
+        SupaDB -->|Buckets Seguros| Storage["Supabase Storage (Evidencias)"]
     end
 ```
 
 ---
 
-### 🚗 2. Plataforma E-Commerce Transaccional (Vehículos y Repuestos)
-Marketplace moderno y transaccional diseñado para la compra-venta de vehículos y catálogo masivo de repuestos con control riguroso de inventario y optimización para el mercado venezolano.
+### 🏋️ 2. TitanClub — Sistema Híbrido Cloud + Edge de Control de Accesos Biométrico y ERP
+Migración y modernización de un sistema legacy local hacia una arquitectura desacoplada **Cloud + Edge** para control de acceso físico y analítica operativa en tiempo real.
 
-* **Stack:** `Next.js (App Router)` · `React Server Components (RSC)` · `TypeScript Strict` · `Tailwind CSS` · `Supabase` · `TanStack Query` · `Zustand` · `Zod`
-* **Aspectos de Ingeniería Destacados:**
-  * **Estrategia de Renderizado Híbrido:** Listados públicos de catálogo optimizados mediante **ISR (Incremental Static Regeneration)** y páginas de detalle con **SSR**, garantizando máxima velocidad y SEO dinámico con Open Graph.
-  * **Consistencia Transaccional Estricta:** Lógica de reservación y venta implementada mediante Funciones RPC en PostgreSQL con bloqueo a nivel de fila (`SELECT FOR UPDATE`), eliminando condiciones de carrera en inventario concurrente.
-  * **Seguridad y Sesiones:** Autenticación robusta en el servidor con `@supabase/ssr` y middleware de sesión, eliminando el parpadeo de contenido (FOUC).
-  * **Arquitectura de Estado Desacoplada:** Frontera estricta entre **TanStack Query** (datos asíncronos del servidor) y **Zustand** (estado efímero de UI y filtros).
+* **Daemon Local Hardware-to-Cloud (Python Edge Bridge):** Servicio local en Python que integra el hardware de control de acceso / torniquete en red local (`TCP/IP` / Raspberry Pi) con **Supabase PostgreSQL**, sincronizando aperturas y bloqueos en tiempo real.
+* **Dashboard Analítico en Tiempo Real (Next.js App Router):** Interfaz administrativa con **Supabase Realtime (WebSockets)**, mapas de calor de afluencia horaria con **Recharts**, control de solvencia de membresías, cómputo automatizado de horas de personal y exportación de auditorías en Excel (`.xlsx`).
+* **Ingeniería de Migración de Datos:** Scripts automatizados de extracción, transformación y carga (ETL) desde bases de datos locales **SQLite** hacia **PostgreSQL** en la nube sin pérdida de historial operativo.
 
 ---
 
-### 🛒 3. Mercatodo 8000 — Sistema Backend de Gestión de Pedidos y Facturación
-Solución web desarrollada para optimizar el ciclo de venta comercial y generación automatizada de formatos digitales.
+### 🚗 3. Plataforma E-Commerce Transaccional Automotriz (Vehículos y Repuestos)
+Marketplace transaccional con catálogo de alta concurrencia y arquitectura de renderizado híbrido.
 
-* **Stack:** `Node.js` · `Express` · `JavaScript` · `API REST` · `PostgreSQL / SQL`
-* **Capacidades:**
-  * Centralización de pedidos, control de estados de orden y emisión digital de recibos y facturación.
-  * Arquitectura desacoplada garantizando compatibilidad multiplataforma y cero downtime operativo en entornos Linux y Windows.
+* **Control de Concurrencia y Stock:** Prevención de condiciones de carrera (*race conditions*) y sobre-venta (*overselling*) mediante transacciones atómicas y bloqueo pesimista de filas en PostgreSQL (`SELECT FOR UPDATE`) expuestas vía RPCs.
+* **Rendimiento y Estado Desacoplado:** Catálogo público acelerado con **ISR (Incremental Static Regeneration)** y **React Server Components (RSC)**; autenticación en servidor con `@supabase/ssr` (cero parpadeo FOUC), validación de esquemas con **Zod** y separación estricta entre caché asíncrono (**TanStack Query v5**) y estado de interfaz (**Zustand v5**).
 
 ---
 
-## 🎓 Formación Académica
-
-* **Ingeniería en Informática (En curso)** — *Instituto Universitario Adventista de Venezuela (IUNAV)*
-* **Técnico Superior Universitario en Informática (Culminado)** — *Instituto Universitario Adventista de Venezuela (IUNAV)*
-* **Técnico Medio en Contabilidad (Culminado)** — *U.E. Santa Teresa de Jesús (Fe y Alegría)*
+### 🛒 4. Mercatodo 8000 — Sistema Web de Gestión de Pedidos y Facturación Digital
+* Digitalización del flujo de toma de pedidos comerciales y emisión automatizada de formatos digitales de recibos y facturación mediante arquitectura **Node.js, Express y API REST**, desplegada en entornos **Linux** de alta disponibilidad.
 
 ---
 
-<div align="center">
-  <b>¿Te interesa colaborar o conversar sobre una oportunidad?</b><br>
-  📬 <a href="mailto:anthonyhuice92@gmail.com">anthonyhuice92@gmail.com</a> · 💼 <a href="https://www.linkedin.com/in/anthony-huice-61906b377">LinkedIn</a>
-</div>
+## 🎓 Educación & Idiomas
+
+* **Ingeniería en Informática** — *Instituto Universitario Adventista de Venezuela (IUNAV)* · **En curso**
+* **T.S.U. en Informática** — *Instituto Universitario Adventista de Venezuela (IUNAV)* · **Culminado**
+* **Idiomas:** Español (Nativo) · Inglés (Lectura técnica de documentación y APIs)
