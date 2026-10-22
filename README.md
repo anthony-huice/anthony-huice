@@ -1,7 +1,7 @@
 <div align="center">
 
 # Anthony Yariff Huice Martínez
-### Full-Stack & Mobile Engineer | Next.js · React Native (Expo) · Node.js · PostgreSQL (Supabase) · AI
+### Full-Stack & Mobile Engineer | Next.js · React Native (Expo) · Node.js · Python · PostgreSQL (Supabase) · AI
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-anthony--huice-0A66C2?style=flat&logo=linkedin)](https://www.linkedin.com/in/anthony-huice)
 [![Email](https://img.shields.io/badge/Email-anthonyhuice92%40gmail.com-EA4335?style=flat&logo=gmail)](mailto:anthonyhuice92@gmail.com)
@@ -9,12 +9,23 @@
 [![Ubicación](https://img.shields.io/badge/Ubicación-Anaco%2C_Venezuela-555?style=flat&logo=google-maps)](https://www.linkedin.com/in/anthony-huice)
 
 <p align="center">
-  Desarrollador Full-Stack y Móvil (+3 años) especializado en arquitectura y puesta en producción de sistemas empresariales (<b>CRM, ERP, WMS, Control de Accesos Biométrico y E-Commerce transaccional</b>). Enfoque estricto en aislamiento multi-tenant de baja latencia, consistencia transaccional en PostgreSQL, integración con hardware en red local y automatización operativa B2B con LLMs.
+  Desarrollador Full-Stack y Móvil (<b>+3 años de experiencia</b>) especializado en arquitectura y puesta en producción de sistemas empresariales de misión crítica (<b>CRM, ERP, WMS, Control de Accesos Biométrico y E-Commerce transaccional</b>). Enfoque estricto en aislamiento multi-tenant de baja latencia ($O(1)$ RLS), consistencia transaccional en PostgreSQL, integración con hardware en red local y automatización operativa B2B con LLMs.
 </p>
 
 ---
 
 </div>
+
+## 📦 Repositorios Públicos Destacados (Portafolio de Ingeniería & Blueprints)
+
+| Repositorio Público | Arquitectura & Dominio Técnico | Stack Clave |
+| :--- | :--- | :--- |
+| **[`autoparts-atomic-ecommerce`](https://github.com/anthony-huice/autoparts-atomic-ecommerce)** | **High-Concurrency Automotive Store:** Marketplace transaccional con 42 migraciones SQL, bloqueo pesimista de stock (`SELECT ... FOR UPDATE`), renderizado híbrido SSR/ISR y *Recruiter Sandbox Mode*. | `Next.js 16 (App Router)` · `React 19` · `TypeScript` · `TanStack Query` · `Supabase` |
+| **[`whatsapp-gemini-conciliator`](https://github.com/anthony-huice/whatsapp-gemini-conciliator)** | **B2B Payment Conciliator & NOC Triage Engine:** Motor serverless de extracción estructurada con IA, idempotencia de webhooks (`wamid`) y *Zero-Downtime Heuristic Fallback* (+200 operaciones/mes). | `Node.js` · `TypeScript` · `Google Gemini 2.0 Flash` · `WhatsApp Cloud API` · `Zod` |
+| **[`fieldops-isp-blueprint`](https://github.com/anthony-huice/fieldops-isp-blueprint)** | **Multi-Tenant FTTH & Serialized WMS Blueprint:** Kanban con candados de campo, cálculo geodésico Haversine (NAP a hogar), firma vectorial SVG, WMS de ONUs GPON y RLS en $O(1)$ sin JOINs. | `React Native` · `Expo SDK` · `TypeScript` · `PostgreSQL (O(1) RLS + GIN)` |
+| **[`titan-architecture-case-study`](https://github.com/anthony-huice/titan-architecture-case-study)** | **Biometric Access Control & RTC Drift Engine:** Orquestación multihilo (4 demonios), bloqueo físico en torniquete (`/su`), compensación de reloj RTC (`epoch 2000`) y *Hot Backups* con `PRAGMA integrity_check`. | `Python (Multithreading)` · `SQLite` · `TCP/IP Hardware Bridge` · `Supabase Realtime` |
+
+---
 
 ## 🛠️ Stack Tecnológico
 
@@ -26,19 +37,12 @@
 
 ---
 
-## 🚀 Sistemas en Producción & Arquitectura de Ingeniería
+## 🚀 Arquitectura de Sistemas en Producción
 
-> *Nota: Por acuerdos de confidencialidad y protección de propiedad intelectual comercial, los repositorios de producción se mantienen privados. A continuación se documenta la arquitectura técnica implementada en cada sistema.*
-
-### 📡 1. Metricall — Suite Operativa Multi-Tenant CRM, ERP & WMS para ISPs (Telecom FTTH)
-Ecosistema multiplataforma (**Web, PWA y Android**) en producción para operadoras de fibra óptica (FTTH). Reemplaza la gestión fragmentada en hojas de cálculo por flujos estructurados de campo, trazabilidad de inventario y atención automatizada.
-
-* **Arquitectura Multi-Tenant de Latencia $O(1)$:** Modelo jerárquico de 5 niveles (*Empresas → Sucursales → Tableros → Listas JSONB → Tarjetas JSONB*) con propagación denormalizada de `empresa_id`, superando las **100 políticas RLS sin JOINs**, índices GIN sobre columnas JSONB y funciones RPC con `SECURITY DEFINER`.
-* **Bot Transaccional con IA (WhatsApp Cloud API + Gemini 2.0 Flash):** Webhook serverless en Node.js con extracción determinista (temperatura `0.1–0.2`) y fallback heurístico local en JS (0% downtime ante caída de API externa). Automatiza:
-  1. **Captura de Prospectos:** Extracción estructurada de datos de contratación y enrutamiento directo al tablero de *Factibilidad*.
-  2. **Conciliación de Cobranza en 2 Pasos:** Validación interactiva de datos bancarios (Pago Móvil/Transferencia), descarga de comprobantes desde Meta hacia Supabase Storage y generación de tickets auditables.
-  3. **Triaje NOC de Soporte Técnico:** Clasificación automatizada de 5 categorías de fallas ópticas/red y auditoría en vivo mediante `webhook_logs`.
-* **WMS y Operaciones de Campo:** Trazabilidad de equipos serializados (ONUs/Routers) a través de 6 estados de custodia, validación geográfica obligatoria (coordenadas GPS + evidencia fotográfica de caja NAP/residencia) y firma digital manuscrita en dispositivo móvil.
+### 📡 1. Suite Operativa Multi-Tenant CRM, ERP & WMS para ISPs (Telecom FTTH)
+Ecosistema multiplataforma (**Web, PWA y Android**) en producción activa para operadoras de fibra óptica (FTTH).
+* **Arquitectura Multi-Tenant de Latencia $O(1)$:** Modelo jerárquico de 5 niveles con propagación denormalizada de tenant, superando las **100 políticas RLS sin JOINs**, índices GIN sobre columnas JSONB y funciones RPC con `SECURITY DEFINER` ([ver blueprint público `fieldops-isp-blueprint`](https://github.com/anthony-huice/fieldops-isp-blueprint)).
+* **Bot Transaccional con IA (+200 conciliaciones y tickets/mes):** Webhook serverless en Node.js con extracción determinista en **Google Gemini 2.0 Flash** y fallback heurístico local en JS para **0% caída de servicio** ([ver motor público `whatsapp-gemini-conciliator`](https://github.com/anthony-huice/whatsapp-gemini-conciliator)).
 
 ```mermaid
 flowchart TD
@@ -63,28 +67,13 @@ flowchart TD
 
 ---
 
-### 🏋️ 2. TitanClub — Sistema de Control de Accesos Biométrico, Auditoría de Caja y Solvencia
-Sistema en producción local (con arquitectura de expansión Cloud + Edge) que automatiza la comunicación con hardware de control de acceso biométrico/torniquete en red local (`LAN`), el control financiero por turnos y la solvencia de membresías.
-
-* **Orquestación Multihilo y Hardware Bridge (`Python`):** Arquitectura concurrente con 4 demonios en segundo plano:
-  1. *Monitor Keep-Alive:* Escucha continua del controlador biométrico en red local (`192.168.1.x`), capturando fichajes de socios y cómputo exacto de horas trabajadas de entrenadores.
-  2. *Sincronizador de Bloqueo Físico:* Cola de tareas asíncrona que envía comandos HTTP directos al lector para bloquear o habilitar el paso físico en el torniquete según el estado de pago.
-  3. *Guardián de Vencimientos y Cierre:* Verificación automática de membresías expiradas para bloqueo inmediato en hardware y cierre forzado diario de operaciones (9:00 PM).
-  4. *Motor de Respaldo Transaccional:* Backups automáticos en caliente cada 2 horas mediante `sqlite3.backup()` previa validación de corrupción con `PRAGMA integrity_check` y rotación de snapshots.
-* **Control de Caja por Turnos y Analítica Operativa:** Cuadre financiero segregado por jornada (mañana/tarde), auditoría de clientes solventes vs. vencidos, mapas de calor de afluencia horaria, exportación de reportes en Excel (`.xlsx`) y suite web espejo en **Next.js (App Router) + Supabase Realtime**.
+### 🏋️ 2. Sistema de Control de Accesos Biométrico, Auditoría de Caja y Solvencia (`TitanClub`)
+Sistema en producción local que automatiza la comunicación con hardware biométrico/torniquete en red local (`LAN`), el control financiero por turnos (mañana/tarde) y la solvencia de membresías ([ver caso de estudio y motor `titan-architecture-case-study`](https://github.com/anthony-huice/titan-architecture-case-study)).
 
 ---
 
-### 🚗 3. Plataforma E-Commerce Transaccional Automotriz (Vehículos y Repuestos)
-Marketplace transaccional con catálogo de alta concurrencia y arquitectura de renderizado híbrido.
-
-* **Control de Concurrencia y Stock:** Prevención de condiciones de carrera (*race conditions*) y sobre-venta (*overselling*) mediante transacciones atómicas y bloqueo pesimista de filas en PostgreSQL (`SELECT FOR UPDATE`) expuestas vía RPCs.
-* **Rendimiento y Estado Desacoplado:** Catálogo público acelerado con **ISR (Incremental Static Regeneration)** y **React Server Components (RSC)**; autenticación en servidor con `@supabase/ssr` (cero parpadeo FOUC), validación de esquemas con **Zod** y separación estricta entre caché asíncrono (**TanStack Query v5**) y estado de interfaz (**Zustand v5**).
-
----
-
-### 🛒 4. Mercatodo 8000 — Sistema Web de Gestión de Pedidos y Facturación Digital
-* Digitalización del flujo de toma de pedidos comerciales y emisión automatizada de formatos digitales de recibos y facturación mediante arquitectura **Node.js, Express y API REST**, desplegada en entornos **Linux** de alta disponibilidad.
+### 🚗 3. Plataforma E-Commerce Transaccional Automotriz (`AutoParts Pro`)
+Marketplace transaccional con catálogo de alta concurrencia, 42 migraciones SQL y prevención de *overselling* mediante bloqueo pesimista de filas (`SELECT ... FOR UPDATE`) ([ver repositorio completo `autoparts-atomic-ecommerce`](https://github.com/anthony-huice/autoparts-atomic-ecommerce)).
 
 ---
 
@@ -92,4 +81,4 @@ Marketplace transaccional con catálogo de alta concurrencia y arquitectura de r
 
 * **Ingeniería en Informática** — *Instituto Universitario Adventista de Venezuela (IUNAV)* · **En curso**
 * **T.S.U. en Informática** — *Instituto Universitario Adventista de Venezuela (IUNAV)* · **Culminado**
-* **Idiomas:** Español (Nativo) · Inglés (Lectura técnica)
+* **Idiomas:** Español (Nativo) · Inglés (Lectura técnica — Nivel A2/B1)
