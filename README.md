@@ -9,7 +9,7 @@
 [![Ubicación](https://img.shields.io/badge/Ubicación-Anaco%2C_Venezuela-555?style=flat&logo=google-maps)](https://www.linkedin.com/in/anthony-huice)
 
 <p align="center">
-  Desarrollador Full-Stack y Móvil (+3 años) especializado en el diseño arquitectónico y puesta en producción de sistemas empresariales de misión crítica (<b>CRM, ERP, WMS, Control de Accesos IoT y E-Commerce transaccional</b>). Enfoque estricto en aislamiento multi-tenant de baja latencia, consistencia transaccional en PostgreSQL y automatización operativa B2B con LLMs.
+  Desarrollador Full-Stack y Móvil (+3 años) especializado en arquitectura y puesta en producción de sistemas empresariales (<b>CRM, ERP, WMS, Control de Accesos Biométrico y E-Commerce transaccional</b>). Enfoque estricto en aislamiento multi-tenant de baja latencia, consistencia transaccional en PostgreSQL, integración con hardware en red local y automatización operativa B2B con LLMs.
 </p>
 
 ---
@@ -21,8 +21,8 @@
 | Dominio | Tecnologías & Arquitectura |
 | :--- | :--- |
 | **Frontend & Móvil** | `TypeScript (Strict)` · `Next.js (App Router, RSC, SSR/ISR)` · `React 19` · `React Native` · `Expo SDK` · `PWA` · `TanStack Query` · `Zustand` · `Tailwind CSS` · `Zod` |
-| **Backend & Datos** | `Node.js` · `Express` · `PostgreSQL (Supabase)` · `Row-Level Security (RLS)` · `Funciones RPC Transaccionales` · `Triggers & Índices GIN` · `REST APIs` · `WebSockets (Realtime)` |
-| **IA, IoT & Cloud** | `Google Gemini API` · `Meta WhatsApp Cloud API` · `Webhooks` · `Python (Edge/Hardware Bridge)` · `Vercel Serverless` · `Linux` · `Git / GitHub` |
+| **Backend & Datos** | `Node.js` · `Express` · `PostgreSQL (Supabase)` · `Row-Level Security (RLS)` · `Funciones RPC Transaccionales` · `Triggers & Índices GIN` · `SQLite` · `REST APIs` · `WebSockets` |
+| **IA, Hardware & Cloud** | `Google Gemini API` · `Meta WhatsApp Cloud API` · `Webhooks` · `Python (Multithreading & Hardware Bridge)` · `Vercel Serverless` · `Linux` · `Git / GitHub` |
 
 ---
 
@@ -63,12 +63,15 @@ flowchart TD
 
 ---
 
-### 🏋️ 2. TitanClub — Sistema Híbrido Cloud + Edge de Control de Accesos Biométrico y ERP
-Migración y modernización de un sistema legacy local hacia una arquitectura desacoplada **Cloud + Edge** para control de acceso físico y analítica operativa en tiempo real.
+### 🏋️ 2. TitanClub — Sistema de Control de Accesos Biométrico, Auditoría de Caja y Solvencia
+Sistema en producción local (con arquitectura de expansión Cloud + Edge) que automatiza la comunicación con hardware de control de acceso biométrico/torniquete en red local (`LAN`), el control financiero por turnos y la solvencia de membresías.
 
-* **Daemon Local Hardware-to-Cloud (Python Edge Bridge):** Servicio local en Python que integra el hardware de control de acceso / torniquete en red local (`TCP/IP` / Raspberry Pi) con **Supabase PostgreSQL**, sincronizando aperturas y bloqueos en tiempo real.
-* **Dashboard Analítico en Tiempo Real (Next.js App Router):** Interfaz administrativa con **Supabase Realtime (WebSockets)**, mapas de calor de afluencia horaria con **Recharts**, control de solvencia de membresías, cómputo automatizado de horas de personal y exportación de auditorías en Excel (`.xlsx`).
-* **Ingeniería de Migración de Datos:** Scripts automatizados de extracción, transformación y carga (ETL) desde bases de datos locales **SQLite** hacia **PostgreSQL** en la nube sin pérdida de historial operativo.
+* **Orquestación Multihilo y Hardware Bridge (`Python`):** Arquitectura concurrente con 4 demonios en segundo plano:
+  1. *Monitor Keep-Alive:* Escucha continua del controlador biométrico en red local (`192.168.1.x`), capturando fichajes de socios y cómputo exacto de horas trabajadas de entrenadores.
+  2. *Sincronizador de Bloqueo Físico:* Cola de tareas asíncrona que envía comandos HTTP directos al lector para bloquear o habilitar el paso físico en el torniquete según el estado de pago.
+  3. *Guardián de Vencimientos y Cierre:* Verificación automática de membresías expiradas para bloqueo inmediato en hardware y cierre forzado diario de operaciones (9:00 PM).
+  4. *Motor de Respaldo Transaccional:* Backups automáticos en caliente cada 2 horas mediante `sqlite3.backup()` previa validación de corrupción con `PRAGMA integrity_check` y rotación de snapshots.
+* **Control de Caja por Turnos y Analítica Operativa:** Cuadre financiero segregado por jornada (mañana/tarde), auditoría de clientes solventes vs. vencidos, mapas de calor de afluencia horaria, exportación de reportes en Excel (`.xlsx`) y suite web espejo en **Next.js (App Router) + Supabase Realtime**.
 
 ---
 
@@ -89,4 +92,4 @@ Marketplace transaccional con catálogo de alta concurrencia y arquitectura de r
 
 * **Ingeniería en Informática** — *Instituto Universitario Adventista de Venezuela (IUNAV)* · **En curso**
 * **T.S.U. en Informática** — *Instituto Universitario Adventista de Venezuela (IUNAV)* · **Culminado**
-* **Idiomas:** Español (Nativo) · Inglés (Lectura técnica de documentación y APIs)
+* **Idiomas:** Español (Nativo) · Inglés (Lectura técnica)
